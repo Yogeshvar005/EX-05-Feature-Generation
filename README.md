@@ -53,7 +53,9 @@ edu=['High School','Diploma','Bachelors','Masters','PhD']
 oe2=OrdinalEncoder(categories=[edu])
 df1['Ord_2']= oe2.fit_transform(df1[["Ord_2"]])
 df1
+```
 ## SCALING:
+```
 from sklearn.preprocessing import MinMaxScaler
 sc=MinMaxScaler()
 df2=pd.DataFrame(sc.fit_transform(df1),columns=(['id', 'bin_1', 'bin_2', 'City', 'Ord_1','Ord_2','Target']))
@@ -97,6 +99,7 @@ oe2=OrdinalEncoder(categories=[temp])
 df1['ord_2'] = oe2.fit_transform(df1[['ord_2']])
 df1
 ## SCALING:
+```python
 from sklearn.preprocessing import MinMaxScaler
 sc=MinMaxScaler()
 df0=pd.DataFrame(sc.fit_transform(df1),columns=['id', 'bin_1', 'bin_2', 'nom_0','ord_2'])
@@ -114,21 +117,9 @@ sc3=RobustScaler()
 df4=pd.DataFrame(sc3.fit_transform(df1),columns=['id', 'bin_1', 'bin_2', 'nom_0','ord_2'])
 df4
 ```
-## Titanic Dataset:
-```python
-import pandas as pd
-df=pd.read_csv("titanic_dataset.csv")
-df
-df.drop("Name",axis=1,inplace=True)
-df.drop("Ticket",axis=1,inplace=True)
-df.drop("Cabin",axis=1,inplace=True)
-df.isnull().sum()
 
-df["Age"]=df["Age"].fillna(df["Age"].median())
-df["Embarked"]=df["Embarked"].fillna(df["Embarked"].mode()[0])
-df.isnull().sum()
-df
 ## ENCODING
+```python
 import category_encoders as ce
 be=ce.BinaryEncoder()
 ndf=be.fit_transform(df['Sex'])
@@ -139,8 +130,9 @@ embark=['S','C','Q']
 e1=OrdinalEncoder(categories=[embark])
 df1['Embarked'] = e1.fit_transform(df[['Embarked']])
 df1
-
+```
 ## SCALING
+```python
 from sklearn.preprocessing import MinMaxScaler
 sc=MinMaxScaler()
 df0=pd.DataFrame(sc.fit_transform(df1),columns=['PassengerId', 'Survived', 'Pclass', 'Sex','Age','SibSp','Parch','Fare','Embarked'])
@@ -208,35 +200,6 @@ df4
 
 ![ro](https://user-images.githubusercontent.com/118707079/232986810-b7ba4556-522d-4b2c-af4c-0e4dd92ab866.jpg)
 
-## (iii) Titanic dataset.csv:
-
-![tt](https://user-images.githubusercontent.com/118707079/232987011-31f01ffa-0928-4da7-ba6e-14af7198b02a.jpg)
-
-## Removing null values:
-
-![rem](https://user-images.githubusercontent.com/118707079/232987028-36843e83-e66f-4c92-9fe2-da34e0130d98.jpg)
-![rem2](https://user-images.githubusercontent.com/118707079/232987096-559aebf4-aa66-4d07-a368-acb90ecbf3d9.jpg)
-
-## Encoding:
-
-![en](https://user-images.githubusercontent.com/118707079/232987212-a1b6c697-e782-45b6-8a34-b1408d797894.jpg)
-![enn](https://user-images.githubusercontent.com/118707079/232987261-b8c08654-23a5-4cc6-ad42-53f351202887.jpg)
-
-## Minmax scaler:
-
-![minmax](https://user-images.githubusercontent.com/118707079/232987340-65f4aade-b9dc-4da7-a146-abbc2eb90f85.jpg)
-
-## Standard scaler:
-
-![std](https://user-images.githubusercontent.com/118707079/232987460-9eb98382-0cdc-430c-bebf-75a4ed61acd6.jpg)
-
-## Maxabs scaler:
-
-![mxab](https://user-images.githubusercontent.com/118707079/232987557-653a13c3-9b73-433f-9946-d2feb6b78710.jpg)
-
-## Robust scaler:
-
-![rob](https://user-images.githubusercontent.com/118707079/232987647-70c3bdb4-a3dc-431f-8232-c5d7fd7b2d38.jpg)
 
 ## Result:
 
